@@ -1,0 +1,40 @@
+
+
+.post_container {
+    display: flex;
+    width: 600px;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.post_img_username {
+    display: flex;
+}
+
+.tags {
+    display: flex;
+    gap: 5px;
+}
+
+.tag {
+    background-color: lightblue;
+    color: blue;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+.post_socials {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    padding: 10px 0;
+}
+
+.counter {
+    margin-right: 20px;
+}
+
+.post_img_username, .post_tags {
+    margin-bottom: 10px;
+}
