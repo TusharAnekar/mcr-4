@@ -1,8 +1,12 @@
-import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
 import "./sidebar.css";
 import { ForumDataContext } from "../../contexts/forumData-context";
+
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import RocketLaunchOutlinedIcon from "@mui/icons-material/RocketLaunchOutlined";
+import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 export function Sidebar() {
   const { updatedForumData } = useContext(ForumDataContext);
@@ -10,10 +14,25 @@ export function Sidebar() {
   return (
     <div className="sidebar_container">
       <nav className="nav_container">
-        <NavLink className={"nav_links"}>Home</NavLink>
-        <NavLink className={"nav_links"}>Explore</NavLink>
-        <NavLink className={"nav_links"}>Bookmarks</NavLink>
-        <NavLink className={"nav_links"}>Profile</NavLink>
+        <div className={"nav_links"}>
+          <HomeOutlinedIcon />
+          <p>Home</p>
+        </div>
+
+        <div className={"nav_links"}>
+          <RocketLaunchOutlinedIcon />
+          <p>Explore</p>
+        </div>
+
+        <div className={"nav_links"}>
+          <BookmarkBorderOutlinedIcon />
+          <p>Bookmarks</p>
+        </div>
+
+        <div className={"nav_links"}>
+          <AccountCircleOutlinedIcon />
+          <p>Profile</p>
+        </div>
       </nav>
 
       <div className="profile_container">
