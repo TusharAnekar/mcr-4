@@ -12,6 +12,10 @@
     display: flex;
 }
 
+.post_img_username img{
+    width: 50px;
+}
+
 .tags {
     display: flex;
     gap: 5px;

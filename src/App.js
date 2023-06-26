@@ -1,17 +1,19 @@
+import { Route, Routes, useNavigate } from "react-router-dom";
+
 import "./App.css";
-import { Sidebar } from "./components/Sidebar/Sidebar";
 import { Home } from "./components/Home/Home";
-import { Sort } from "./components/Sort/Sort";
+import { PostDetails } from "./pages/PostDetails/PostDetails";
 
 function App() {
+  const navigate = useNavigate()
   return (
     <div className="App">
-      <h1 className="app_name">My Forum</h1>
-      <div className="content_container">
-        <Sidebar />
-        <Home />
-        <Sort />
-      </div>
+      <h1 className="app_name" onClick={() => navigate("/")}>My Forum</h1>
+
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/:postId" element={<PostDetails />}></Route>
+      </Routes>
     </div>
   );
 }

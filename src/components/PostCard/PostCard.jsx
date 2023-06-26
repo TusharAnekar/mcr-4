@@ -1,6 +1,9 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./postcard.css";
 import { ForumDataContext } from "../../contexts/forumData-context";
+import { Comments } from "../Comments/Comments";
 
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -9,18 +12,21 @@ import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 
-export function PostCard({ singlePost }) {
+export function PostCard({ singlePost, details }) {
   const {
     postId,
     username,
-    pickUrl,
+    picUrl,
     post,
     postDescription,
     upvotes,
     downvotes,
     tags,
+    comments,
     isBookmarked,
   } = singlePost;
+
+  const navigate = useNavigate();
 
   const { updatedForumData, setUpdatedForumData } =
     useContext(ForumDataContext);
@@ -66,7 +72,7 @@ export function PostCard({ singlePost }) {
 
       <div className="post_content">
         <div className="post_img_username">
-          <img src={pickUrl} alt="Profile" />
+          <img src={picUrl} alt="Profile" />
           <p>Posted by @{username}</p>
         </div>
         <div className="post_tags">
@@ -80,8 +86,13 @@ export function PostCard({ singlePost }) {
           </div>
           <p>{postDescription}</p>
         </div>
+
         <div className="post_socials">
-          <ChatBubbleOutlineIcon>Comment</ChatBubbleOutlineIcon>
+          {details ? (
+            <Comments comments={comments} />
+          ) : (
+            <ChatBubbleOutlineIcon onClick={() => navigate(`/${postId}`)} />
+          )}
           <ShareOutlinedIcon>Share</ShareOutlinedIcon>
           {isBookmarked ? (
             <BookmarkIcon onClick={handleBookmark} />

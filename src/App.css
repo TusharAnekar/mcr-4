@@ -11,10 +11,5 @@
 .app_name {
   background-color: white;
   padding: 20px 50px;
-}
-
-.content_container {
-  display: flex;
-  justify-content: space-evenly;
-  padding-top: 20px;
+  cursor: pointer;
 }
